@@ -96,9 +96,11 @@
 
                         // Prevent too fast closing of loadingIndicator and overlay
                         $.loadingIndicator.close(function () {
-                            $('html, body').animate({
-                                scrollTop: ($('.top-bar').offset().top)
-                            }, 'slow');
+                            if( $('.top-bar').length ) {
+                                $('html, body').animate({
+                                    scrollTop: ($('.top-bar').offset().top)
+                                }, 'slow');
+                            }
 
                             $.overlay.close();
                         });
